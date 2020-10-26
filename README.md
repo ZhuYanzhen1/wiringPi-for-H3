@@ -27,9 +27,9 @@
  run configure script  as below:
 
 ```bash
-~cd wiringPi-for-H3
-~sudo chmod +x config.sh
-~sudo ./config.sh
+~$cd wiringPi-for-H3
+~$sudo chmod +x config.sh
+~$sudo ./config.sh
 #choose item 5 as it poop out
 ```
 
@@ -38,17 +38,17 @@ It'll download other components automatically so you don't need to clone this on
 After that, you'll be able to use wiringPi command such as:
 
 ```bash
-~gpio readall					#return gpio function table
-~sudo i2cdetect -y 0			#get devices which mount on /dev/i2c-0
+~$gpio readall					#return gpio function table
+~$sudo i2cdetect -y 0			#get devices which mount on /dev/i2c-0
 ```
 
 Also, it'll expand rootfs space and create 2GB of swap area mounted on /swapfile
 Run ros_install script as below:
 
 ```bash
-~cd wiringPi-for-H3
-~sudo chmod +x ros_install.sh
-~sudo ./ros_install.sh
+~$cd wiringPi-for-H3
+~$sudo chmod +x ros_install.sh
+~$sudo ./ros_install.sh
 #after finished, run "rosdep update" manually!!!
 ```
 
