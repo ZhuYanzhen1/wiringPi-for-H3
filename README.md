@@ -27,9 +27,9 @@
  run configure script  as below:
 
 ```bash
-~$cd wiringPi-for-H3
-~$sudo chmod +x config.sh
-~$sudo ./config.sh
+$cd wiringPi-for-H3
+$sudo chmod +x config.sh
+$sudo ./config.sh
 #choose item 5 as it poop out
 ```
 
@@ -38,19 +38,37 @@ It'll download other components automatically so you don't need to clone this on
 After that, you'll be able to use wiringPi command such as:
 
 ```bash
-~$gpio readall					#return gpio function table
-~$sudo i2cdetect -y 0			#get devices which mount on /dev/i2c-0
+$gpio readall					#return gpio function table
+$sudo i2cdetect -y 0			#get devices which mount on /dev/i2c-0
+#or you can enable read/write permission:
+#$sudo chmod 777 /dev/i2c-0
+#$i2cdetect -y 0
 ```
 
 Also, it'll expand rootfs space and create 2GB of swap area mounted on /swapfile
 Run ros_install script as below:
 
 ```bash
-~$cd wiringPi-for-H3
-~$sudo chmod +x ros_install.sh
-~$sudo ./ros_install.sh
-#after finished, run "rosdep update" manually!!!
+$cd wiringPi-for-H3
+$sudo chmod +x ros_install.sh
+$sudo ./ros_install.sh
+#after script have finished, run "rosdep update" manually!!!
 ```
 
 Then reboot, you can run ros command now.
 
+***
+How to use clash client to setup VPN:
+1. configure proxy in global environment:
+ + $sudo echo "export http_proxy=http://127.0.0.1:7890/" >> /etc/environment
+ + $sudo echo "export https_proxy=http://127.0.0.1:7890/" >> /etc/environment
+
+2. Download file
+ + Download clash configure file operator provided you to "clash" directory
+ + Reboot your device
+
+3. Run and Configure
+ + Enter the "clash" directory using "cd" command
+ + Run clash client: $sudo chmod +x clash && ./clash -d .
+ + If you want the app to run in the background, install screen first and run:<br>screen -dmS clash ./clash -d .
+ + Now you can configure it on website: clash.razord.top
