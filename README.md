@@ -4,7 +4,7 @@
 
 ***
 
-##### Install Environment:
+#### Test Environment:
 
 + CPU: Allwinner H3 with Quard Core Cortex-A7 1.2GHz
 + Memory: 256MB DDR3 * 2
@@ -14,7 +14,7 @@
 + ROS Version: Kinetic 1.12.16
 
 ***
-##### Directory
+#### Directory
 
 + clash: clash client for armv7 with Country.mmdb
 + examples: hardware (oled, gpio, pcf8591, serial, pwm) examples
@@ -22,7 +22,7 @@
 
 ***
 
-##### Install 
+#### Install 
 
  run configure script  as below:
 
@@ -40,6 +40,7 @@ After that, you'll be able to use wiringPi command such as:
 ```bash
 $gpio readall					#return gpio function table
 $sudo i2cdetect -y 0			#get devices which mount on /dev/i2c-0
+
 #or you can enable read/write permission:
 #$sudo chmod 777 /dev/i2c-0
 #$i2cdetect -y 0
@@ -52,16 +53,21 @@ Run ros_install script as below:
 $cd wiringPi-for-H3
 $sudo chmod +x ros_install.sh
 $sudo ./ros_install.sh
+
 #after script have finished, run "rosdep update" manually!!!
 ```
 
 Then reboot, you can run ros command now.
 
 ***
-How to use clash client to setup VPN:
+#### How to use clash client to setup VPN:
+
 1. configure proxy in global environment:
- + $sudo echo "export http_proxy=http://127.0.0.1:7890/" >> /etc/environment
- + $sudo echo "export https_proxy=http://127.0.0.1:7890/" >> /etc/environment
+
+```bash
+$sudo echo "export http_proxy=http://127.0.0.1:7890/" >> /etc/environment
+$sudo echo "export https_proxy=http://127.0.0.1:7890/" >> /etc/environment
+```
 
 2. Download file
  + Download clash configure file operator provided you to "clash" directory
@@ -69,6 +75,17 @@ How to use clash client to setup VPN:
 
 3. Run and Configure
  + Enter the "clash" directory using "cd" command
- + Run clash client: $sudo chmod +x clash && ./clash -d .
- + If you want the app to run in the background, install screen first and run:<br>screen -dmS clash ./clash -d .
- + Now you can configure it on website: clash.razord.top
+ + Run clash client: <br>
+
+```bash
+$sudo chmod +x clash && ./clash -d . 
+```
+
+ + If you want the app to run in the background, install screen first and run:<br>
+
+```bash
+$screen -dmS clash ./clash -d .
+```
+
+ + Now you can configure it on website: http://clash.razord.top/#/proxies
+
