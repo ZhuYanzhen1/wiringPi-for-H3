@@ -17,7 +17,7 @@
 #### Directory
 
 + clash: clash client for armv7 with Country.mmdb
-+ examples: hardware (oled, gpio, pcf8591, serial, pwm) examples
++ examples: hardware (oled, gpio, pcf8591, serial, pwm, mcp2515) examples
 + wiringOP: repaired wiringPi Library
 
 ***
@@ -65,8 +65,8 @@ Then reboot, you can run ros command now.
 1. configure proxy in global environment:
 
 ```bash
-$sudo echo "export http_proxy=http://127.0.0.1:7890/" >> /etc/environment
-$sudo echo "export https_proxy=http://127.0.0.1:7890/" >> /etc/environment
+$sudo echo "export http_proxy=http://127.0.0.1:7890/" >> ~/.bashrc
+$sudo echo "export https_proxy=http://127.0.0.1:7890/" >> ~/.bashrc
 ```
 
 2. Download file
